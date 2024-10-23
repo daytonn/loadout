@@ -3,7 +3,7 @@
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
 sudo apt upgrade -y
-sudo apt install git xclip gnome-tweaks build-essential curl terminator dconf-editor gimp inkscape kicad peek rhythmbox vlc zeal
+sudo apt install -y git xclip gnome-tweaks build-essential curl terminator dconf-editor gimp inkscape kicad peek rhythmbox vlc zeal
 curl -f https://zed.dev/install.sh | sh
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
 . "$HOME/.asdf/asdf.sh"

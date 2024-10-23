@@ -57,18 +57,10 @@ function install_apps {
 function bootstrap {
   echo ""
   install_apps
-  sudo add-apt-repository ppa:git-core/ppa
-  sudo update
-  sudo apt install -y git xclip
   ensure_id_rsa_file
   copy_ssh
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
-  . "$HOME/.asdf/asdf.sh"
   asdf plugin add ruby
   asdf install ruby 3.3.4
-
-  sudo wget https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64 -O /usr/bin/yq
-  sudo chmod +x /usr/bin/yq
 
   if [[ -n "$1" ]]; then
     if [[ "$1" == "-n" ]]; then
@@ -221,4 +213,4 @@ function reload_shell {
   exec $SHELL
 }
 
-bootstrap
+bootstrap "$@"

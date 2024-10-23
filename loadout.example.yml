@@ -1,0 +1,48 @@
+loadout:
+  home: /home/daytonn/Desktop/Loadout
+  working: /media/daytonn/Shire
+  storage: /media/daytonn/HelmsDeep
+  apps:
+    - name: git
+      prerequisites:
+        - sudo add-apt-repository ppa:git-core/ppa
+        - sudo update
+    - name: xclip
+    - name: inkscape
+    - name: gimp
+    - name: appimagelauncher
+    - name: gnome-tweaks
+    - name: wget
+    - name: albert
+      prerequisites:
+        - wget https://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_23.04/amd64/albert_0.26.6-0+651.1_amd64.deb
+      install: sudo dpkg -i albert_0.26.6-0+651.1_amd64.deb
+    - name: flameshot
+      prerequesites:
+        - wget https://github.com/flameshot-org/flameshot/releases/download/v12.1.0/Flameshot-12.1.0.x86_64.AppImage
+      install: xdg-open Flameshot-12.1.0.x86_64.AppImage
+
+  links:
+    - name: Desktop
+      destination: working
+    - name: Downloads
+      destination: working
+    - name: Development
+      destination: working
+    - name: Music
+      destination: storage
+    - name: Pictures
+      destination: storage
+    - name: "Telegram Desktop"
+      destination: working
+    - name: "Templates"
+      destination: working
+    - name: "JoplinBackup"
+      destination: working
+  env:
+    - .aliases
+    - .bashrc
+    - .bash_functions
+    - .env
+    - .eslintrc.js
+    - .gitconfig

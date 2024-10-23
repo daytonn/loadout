@@ -1,0 +1,101 @@
+#!/usr/bin/env ruby
+require "optparse"
+require "awesome_print"
+require_relative "../lib/cli"
+require_relative "../lib/loadout"
+
+cli = CLI.new(ARGV)
+puts cli.cmd
+case cli.cmd
+when :bootstrap
+  puts "bootstrap"
+when :nuke
+  puts "nuke"
+when :link
+  puts "link"
+end
+# loadout = Loadout.new(cli.options)
+
+# cmd = if cli.nuke?
+#   :nuke
+# elsif cli.bootstrap?
+#   :bootstrap
+# else
+#   :install
+# end
+
+# if cli.valid?
+#   if cmd == :nuke
+#     cli.ask?("Are you sure you want to nuke", skip: cli.options[:yes]) do |y|
+#       if y
+#         loadout.nuke!
+#         cli.output("Loadout nuked!")
+#       else
+#         cli.output("Nothing nuked!")
+#       end
+#     end
+#   end
+
+#   if cmd == :install
+#     loadout.links.each do |link|
+#       if link[:exists?]
+#         cli.ask?("#{link[:name]} exists in destination, do you want to overwrite it", skip: cli.options[:yes]) do |answer|
+#           if answer
+#             if loadout.create_link!(link)
+#               cli.output("#{link[:name]} linked!")
+#             else
+#               cli.output("Error linking #{link[:name]}!")
+#             end
+#           else
+#             cli.output("skipping #{link[:name]}...")
+#           end
+#         end
+#       else
+#         cli.ask?("Are you sure you want me to link #{link[:name]}", skip: cli.options[:yes]) do |answer|
+#           if answer
+#             if loadout.create_link!(link)
+#               cli.output("#{link[:name]} linked!")
+#             else
+#               cli.output("Error linking #{link[:name]}!")
+#             end
+#           else
+#             cli.output("Skipping #{link[:name]}...")
+#           end
+#         end
+#       end
+#     end
+
+#     loadout.env_files.each do |env|
+#       if env[:exists?]
+#         puts "#{env[:file]} exists"
+#         cli.ask?("#{env[:file]} exists in destination, do you want to overwrite it", skip: cli.options[:yes]) do |y|
+#           if y
+#             if loadout.create_link!(env)
+#               cli.output("#{env[:file]} linked!")
+#             else
+#               cli.output("Error linking #{link[:file]}!")
+#             end
+#           else
+#             cli.output("skipping #{env[:file]}...")
+#           end
+#         end
+#       else
+#         cli.ask?("Are you sure you want to link #{env[:file]}", skip: cli.options[:yes]) do |y|
+#           if y
+#             if loadout.create_link!(env)
+#               cli.output("#{env[:file]} linked!")
+#             else
+#               cli.output("Error linking #{env[:file]}")
+#             end
+#           else
+#             cli.output("skipping #{env[:file]}...")
+#           end
+#         end
+#       end
+#     end
+#   end
+
+#   if cmd == :bootstrap
+#     puts "bootstrap"
+#   end
+# end
